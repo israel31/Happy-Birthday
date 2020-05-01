@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>HBDsisJennifer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Fullscreen Slit Slider with CSS3 and jQuery" />
+        <meta name="keywords" content="slit slider, plugin, css3, transitions, jquery, fullscreen, autoplay" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
+		<noscript>
+			<link rel="stylesheet" type="text/css" href="css/styleNoJS.css" />
+		</noscript>
+    </head>
+    <body>
+        
+        <div class="container demo-2">
+		
+			<!-- Codrops top bar -->
+            <!--<div class="codrops-top clearfix">
+                <a href="http://tympanus.net/Tutorials/CSS3BouncingBall/">
+                    <strong>&laquo; Previous Demo: </strong>3D Bouncing Ball with CSS3
+                </a>
+                <span class="right">
+                	<a href="http://www.flickr.com/photos/majownik/">Images by Majownik</a>
+                    <a href="http://tympanus.net/codrops/?p=9357">
+                        <strong>Back to the Codrops Article</strong>
+                    </a>
+                </span>
+                <div class="clr"></div>
+            </div><!--/ Codrops top bar -->
+
+           <!-- <header class="clearfix">
+			
+				<h1>Slit Slider <span>with CSS3 and jQuery</span></h1>
+				
+				<nav class="codrops-demos">
+					<a href="index.html">Demo 1</a>
+					<a class="current-demo" href="index2.html">Demo 2</a>
+				</nav>
+				
+			</header> -->
+
+            <div id="slider" class="sl-slider-wrapper">
+
+				<div class="sl-slider">
+				
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+						<div class="sl-slide-inner">
+							<div class="bg-img bg-img-1"></div>
+							<h2>Happy Birthday Sister Jennifer</h2>
+							<blockquote><p> A beautiful and intelligent young lady, Born 2nd of May. A staff of Belivers' Loveworld Campus Ministry Benin (ZONE J)</p></blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+						<div class="sl-slide-inner">
+							<div class="bg-img bg-img-2"></div>
+							<h2>Esteemed Leader of Rhema 1</h2>
+							<blockquote> She is an ordained Cell Leader (of the Rhema 1 Cell Group) late January. Her presence brought about a new kind of energy into the Cell, this energy is what makes her very special to us in Rhema 1. 
+								
+								<h4>From all of us in Rhema 1 <b>HAPPY BIRTHDAY MA</b></h4></blockquote>
+						</div>
+					</div>
+				</div><!-- /sl-slider -->
+
+				<nav id="nav-dots" class="nav-dots">
+					<span class="nav-dot-current"></span>
+					<span></span>
+				</nav>
+
+			</div><!-- /slider-wrapper -->
+
+			<div class="content-wrapper">
+				<h2>A MESSAGE FROM US. (RHEMA 1)</h2>
+				<p> Where do we start from, is it the encouragement
+				motivation, care, concern, love there is alot to say. Even though the time you've spent with us (me in particular- no offence guys :) )
+				hasnt been long, Ma you've impacted our lives so much. Thank you so much ma, i mean who would have thought
+				we would have been able to achieve so much, look at our sponsorship records, all because of the words you gave to us. Ma, We are grateful to God for giving us a leader like you. Ma, do you remember when we (Israel) went on soul winning
+				that it was only you who eventually won a soul that day...Lol, then after you sat me down and talked sense into my head, i may not have reached my full potential yet
+				But ma, i want you to know that despite the current condition of the country, i am active in soul winning, and few days ago i got someone born again, My first soul won - Hurray!!
+				and its all because you didnt give up on me ma. Ma, your calm confidence is really amazing, even in tight corners you still hang on to your faith, against all odds you still maintain your course,
+				you inspire us ma. We are proud to have a leader like you ma.
+				<cite><b>HAPPY BIRTHDAY SISTER JENNIFER.</b></cite>  
+			</p>
+			</div>
+
+        </div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.ba-cond.min.js"></script>
+		<script type="text/javascript" src="js/jquery.slitslider.js"></script>
+		<script type="text/javascript">	
+			$(function() {
+			
+				var Page = (function() {
+
+					var $nav = $( '#nav-dots > span' ),
+						slitslider = $( '#slider' ).slitslider( {
+							onBeforeChange : function( slide, pos ) {
+
+								$nav.removeClass( 'nav-dot-current' );
+								$nav.eq( pos ).addClass( 'nav-dot-current' );
+
+							}
+						} ),
+
+						init = function() {
+
+							initEvents();
+							
+						},
+						initEvents = function() {
+
+							$nav.each( function( i ) {
+							
+								$( this ).on( 'click', function( event ) {
+									var $dot = $( this );
+									
+									if( !slitslider.isActive() ) {
+
+										$nav.removeClass( 'nav-dot-current' );
+										$dot.addClass( 'nav-dot-current' );
+									
+									}
+									
+									slitslider.jump( i + 1 );
+									return false;
+								
+								} );
+								
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+				/**
+				 * Notes: 
+				 * 
+				 * example how to add items:
+				 */
+
+				/*
+				
+				var $items  = $('<div class="sl-slide sl-slide-color-2" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1"><div class="sl-slide-inner bg-1"><div class="sl-deco" data-icon="t"></div><h2>some text</h2><blockquote><p>bla bla</p><cite>Margi Clarke</cite></blockquote></div></div>');
+				
+				// call the plugin's add method
+				ss.add($items);
+
+				*/
+			
+			});
+		</script>
+	</body>
+</html>
