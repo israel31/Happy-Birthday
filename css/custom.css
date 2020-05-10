@@ -322,7 +322,7 @@
 
 .demo-1 .bg-4 h2,
 .demo-1 .bg-4 blockquote{
-	color: #fff;
+	color:yellow;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 
@@ -356,7 +356,7 @@
 }
 
 .demo-2 .bg-img-1 {
-	background-image: url(../images/2.jpg);
+	background-image: url(../images/1.jpg);
 	background-size: contain;
 	background-origin: border-box;
 }
